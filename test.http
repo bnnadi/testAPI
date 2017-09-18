@@ -1,0 +1,5 @@
+POST http://localhost:8001/v1/score/create HTTP/1.1
+
+
+###
+GEt http://localhost:8001/v1/user/1
