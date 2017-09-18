@@ -19,5 +19,5 @@ The response object will look like this:
 ### GET /v1/score
 ### GET /v1/score/:score_id
 ### GET /v1/score/topPlayers
-### GET /v1/score/todatScore
+### GET /v1/score/todayScore
 ### GET /v1/score/topImporved
