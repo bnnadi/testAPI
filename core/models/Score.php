@@ -46,4 +46,9 @@ class Score extends Model
     {
         return $this->dao->getTodayScores();
     }
+
+    function getImproved()
+    {
+        return $this->dao->getTopTenImproved();
+    }
 }

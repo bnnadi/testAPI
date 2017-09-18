@@ -93,7 +93,23 @@ class ScoreController extends Controller
     function topImporved($parameter = 0)
     {
         if (!$this->api->isPost()) {
+            $score = new Score();
+            $scores = $score->getImproved();
+
+            $data = array();
             
+            foreach ($scores AS $this_score) {
+                $data_array = array(
+                    'id'=>$this_score['score_id'],
+                    'user_id'=>$this_score['score_uid'],
+                    'score'=>$this_score['score_value'],
+                    'created_date'=>$this_score['score_created_date']
+                );
+                array_push($data, $data_array);
+            }
+            
+            $this->response->addData('scores', $data);
+            $this->response->setStatus(true);
             
         }
     }

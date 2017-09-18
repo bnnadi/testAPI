@@ -22,10 +22,10 @@ class ScoreDAO extends \core\dao\DAO
 		return $scores;
 	}
 
-    function getTopTenImproved($username)
+    function getTopTenImproved()
 	{
-		$query = "SELECT * FROM {$this->table} LEFT JOIN contacts ON {$this->table}.user_contact_id = contacts.contact_id WHERE {$this->table}.user_name = :user_name";
-		$params = array(':user_name'=>$username);
+		$query = "SELECT * FROM {$this->table}";
+		$params = array();
 		$users = $this::getConnection()->query($query, $params);
 		return $users;
     }
