@@ -63,7 +63,7 @@ class UserController extends Controller
             $user->user_expires = $signed_data['expires'];
             $user->user_issued_at = $signed_data['issued_at'];
             $user->user_country = $signed_data['user']['country'];
-            $user->user_min_age = $signed_data['user']['age'];
+            $user->user_min_age = $signed_data['user']['age']["min"];
             $user->user_created_date = date('Y-m-d G:i:s', time());
 
             $user->create();

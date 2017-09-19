@@ -52,7 +52,7 @@ class User extends Model
         $data = json_decode($this->base64_url_decode($payload), true);
         
         // confirm the signature
-        $expected_sig = hash_hmac('sha256', $payload, $secret, $raw = true);
+        $expected_sig = hash_hmac('sha256', $payload, FB_APP_SECRET, $raw = true);
         if ($sig !== $expected_sig) {
             error_log('Bad Signed JSON signature!');
             return null;
