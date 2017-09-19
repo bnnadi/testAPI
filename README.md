@@ -1,6 +1,6 @@
 # testAPI
 
-The live version of this is located at [here] (http://165.227.214.31/)
+The live version of this is located at [here](http://165.227.214.31/)
 
 ## Route
 The response object will look like this:
