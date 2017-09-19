@@ -100,10 +100,8 @@ class ScoreController extends Controller
             
             foreach ($scores AS $this_score) {
                 $data_array = array(
-                    'id'=>$this_score['score_id'],
                     'user_id'=>$this_score['score_uid'],
-                    'score'=>$this_score['score_value'],
-                    'created_date'=>$this_score['score_created_date']
+                    'score'=>$this_score['hiscore']
                 );
                 array_push($data, $data_array);
             }

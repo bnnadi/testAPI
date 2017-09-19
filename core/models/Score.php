@@ -47,8 +47,19 @@ class Score extends Model
         return $this->dao->getTodayScores();
     }
 
-    function getImproved()
+    function getImproved($days = 7)
     {
-        return $this->dao->getTopTenImproved();
+        $scores = array();
+        $current = $this->dao->getTodayHighScore();
+        $past = $this->dao->getPastHighScore($days);
+
+        $scores = array_map(function($c, $p)
+        {
+            if($c['score_uid'] == $p['score_uid'] && $c['hiscore'] > $p['hiscore']) {
+                return $c;
+            }
+        },$current, $past);
+
+        return $scores;
     }
 }

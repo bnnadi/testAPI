@@ -22,12 +22,20 @@ class ScoreDAO extends \core\dao\DAO
 		return $scores;
 	}
 
-    function getTopTenImproved()
+    function getTodayHighScore()
 	{
-		$query = "SELECT * FROM {$this->table}";
+		$query = "SELECT score_uid, MAX(score_value) AS hiscore, DATE(score_created_date) AS sdate FROM {$this->table} WHERE {$this->table}.score_created_date > DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
 		$params = array();
-		$users = $this::getConnection()->query($query, $params);
-		return $users;
+		$scores = $this::getConnection()->query($query, $params);
+		return $scores;
+    }
+
+    function getPastHighScore($day)
+    {
+		$query = "SELECT score_uid, MAX(score_value) AS hiscore, DATE(score_created_date) AS sdate FROM {$this->table} WHERE {$this->table}.score_created_date > DATE_SUB(CURDATE(), INTERVAL :day DAY)";
+		$params = array(':day'=>$day);
+		$scores = $this::getConnection()->query($query, $params);
+		return $scores;
     }
     
     function getTodayScores()
