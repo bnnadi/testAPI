@@ -1,6 +1,6 @@
 # testAPI
 
-The live version of this is located at [here](http://165.227.214.31/)
+FG aka Facebook Gaming storing user scores from your game, as well as showing your top scores. 
 
 ## Route
 The response object will look like this:

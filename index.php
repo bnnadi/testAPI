@@ -3,7 +3,7 @@ require_once "vendor/autoload.php";
 require_once "config/config.php";
 require_once 'api.php';
 
-$api = new \WAG\API();
+$api = new \FG\API();
 
 $api->init();
 
